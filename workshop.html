@@ -1,14 +1,776 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tn-26</title>
+    <title>คู่มือกิจกรรม Workshop - Training FixedIP & Forward Port</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Anuphan:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: rgba(99, 102, 241, 0.08);
+            --secondary: #0891b2;
+            --bg: #f0f4f8;
+            --surface: #ffffff;
+            --text: #1e293b;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --border: rgba(0, 0, 0, 0.08);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', 'Anuphan', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* --- A4 PAGES CONTAINER --- */
+        .pages-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 1rem;
+        }
+
+        /* --- A4 PAGE STYLE --- */
+        .a4-page {
+            background: #ffffff;
+            width: 210mm;
+            height: 297mm;
+            margin: 1.5rem auto;
+            padding: 20mm 15mm;
+            box-shadow: var(--shadow-md);
+            border-radius: 8px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        /* Header within pages */
+        .page-header {
+            margin-bottom: 1.25rem;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 0.75rem;
+        }
+
+        .page-title-area h2 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+        .page-title-area p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .page-badge {
+            background: var(--primary-light);
+            color: var(--primary);
+            border: 1px solid rgba(99, 102, 241, 0.15);
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 99px;
+            text-transform: uppercase;
+        }
+
+        .page-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .page-footer {
+            margin-top: auto;
+            padding-top: 0.5rem;
+            border-top: 1px solid #f1f5f9;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* --- STYLED TABLES --- */
+        .section-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .section-title svg {
+            width: 16px;
+            height: 16px;
+            color: var(--primary);
+        }
+
+        .table-container {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 0.75rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+            text-align: left;
+        }
+
+        th {
+            background: #f8fafc;
+            color: var(--text-dark);
+            font-weight: 600;
+            padding: 8px 12px;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.78rem;
+        }
+
+        td {
+            padding: 8px 12px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            color: var(--text);
+            transition: all 0.2s ease;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Link Box Card */
+        .link-banner {
+            background: radial-gradient(ellipse at top left, rgba(99, 102, 241, 0.06), rgba(8, 145, 178, 0.04));
+            border: 1px solid rgba(99, 102, 241, 0.15);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .link-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .link-icon-bg {
+            background: var(--primary-light);
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+        }
+
+        .link-text-title {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .link-url {
+            font-size: 0.85rem;
+            color: var(--primary-dark);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .link-url:hover {
+            text-decoration: underline;
+        }
+
+        /* --- STYLED CHECKLISTS --- */
+        .checklist-group {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.85rem 1rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .checklist-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.6rem;
+            padding-bottom: 0.35rem;
+            border-bottom: 1px dashed var(--border);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .checklist-title svg {
+            width: 18px;
+            height: 18px;
+            color: var(--secondary);
+        }
+
+        .checklist-items {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            cursor: pointer;
+            position: relative;
+            user-select: none;
+        }
+
+        .checkbox-item input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        .checkmark {
+            height: 16px;
+            width: 16px;
+            background-color: #fff;
+            border: 2px solid #cbd5e1;
+            border-radius: 4px;
+            margin-right: 8px;
+            flex-shrink: 0;
+            margin-top: 2px;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .checkbox-item:hover input ~ .checkmark {
+            border-color: var(--primary);
+        }
+
+        .checkbox-item input:checked ~ .checkmark {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .checkbox-item input:checked ~ .checkmark::after {
+            content: "";
+            position: absolute;
+            display: block;
+            left: 4px;
+            top: 1px;
+            width: 4px;
+            height: 8px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .checkbox-text {
+            font-size: 0.78rem;
+            line-height: 1.35;
+            color: var(--text);
+            transition: all 0.2s ease;
+        }
+
+        .checkbox-item input:checked ~ .checkbox-text {
+            color: var(--text-muted);
+            text-decoration: line-through;
+            opacity: 0.75;
+        }
+
+        /* --- PRINT STYLES --- */
+        @media print {
+            body {
+                background: none !important;
+                color: #000000 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .pages-container {
+                padding: 0 !important;
+            }
+
+            .a4-page {
+                width: 100% !important;
+                height: 100% !important;
+                min-height: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                page-break-after: always !important;
+                page-break-inside: avoid !important;
+                display: flex !important;
+                flex-direction: column !important;
+            }
+
+            .a4-page:last-child {
+                page-break-after: avoid !important;
+            }
+
+            .checkbox-item input:checked ~ .checkmark {
+                background-color: #000 !important;
+                border-color: #000 !important;
+            }
+
+            .checkbox-item input:checked ~ .checkmark::after {
+                border-color: #fff !important;
+            }
+
+            .checkmark {
+                border-color: #000 !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <h1>workshop</h1>
+
+    <!-- --- PAGES WRAPPER --- -->
+    <div class="pages-container">
+
+        <!-- ================= PAGE 1 ================= -->
+        <div class="a4-page">
+            <div class="page-header">
+                <div class="page-title-area">
+                    <h2>คู่มือและข้อมูลวงจรกิจกรรม Workshop</h2>
+                    <p>Training FixedIP & Forward Port Reference Guide</p>
+                </div>
+                <span class="page-badge">หน้า 1/4: Ref (Fixed IP)</span>
+            </div>
+
+            <div class="page-content">
+                <!-- Training Link Box -->
+                <div class="link-banner">
+                    <div class="link-info">
+                        <div class="link-icon-bg">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="link-text-title">ลิงก์ระบบและเครื่องมือการอบรม</div>
+                            <a href="https://aaasssddd.github.io/11lla-aas" target="_blank" class="link-url">aaasssddd.github.io/11lla-aas</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TABLE 1 -->
+                <div>
+                    <h3 class="section-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+                        1. วงจร Workshop เซ็ต FixedIP (PPPOE)
+                    </h3>
+                    <div class="table-container">
+                        <table id="tableFixedPPPOE">
+                            <thead>
+                                <tr>
+                                    <th style="width: 30%;">กลุ่มที่</th>
+                                    <th>เลขวงจร</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-group="1"><td>กลุ่มที่ 1</td><td>2372j1111</td></tr>
+                                <tr data-group="2"><td>กลุ่มที่ 2</td><td>2372j2222</td></tr>
+                                <tr data-group="3"><td>กลุ่มที่ 3</td><td>2372j3333</td></tr>
+                                <tr data-group="4"><td>กลุ่มที่ 4</td><td>2372j4444</td></tr>
+                                <tr data-group="5"><td>กลุ่มที่ 5</td><td>2372j5555</td></tr>
+                                <tr data-group="6"><td>กลุ่มที่ 6</td><td>2372j6666</td></tr>
+                                <tr data-group="7"><td>กลุ่มที่ 7</td><td>2372j7777</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- TABLE 2 -->
+                <div>
+                    <h3 class="section-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+                        2. IP Workshop เซ็ต FixedIP (Static)
+                    </h3>
+                    <div class="table-container">
+                        <table id="tableFixedStatic">
+                            <thead>
+                                <tr>
+                                    <th style="width: 20%;">กลุ่มที่</th>
+                                    <th>PE-WAN</th>
+                                    <th>CE-WAN</th>
+                                    <th>CE-LAN</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-group="1"><td>กลุ่มที่ 1</td><td>10.1.2.3/30</td><td>10.1.2.1/30</td><td>10.1.2.1/30</td></tr>
+                                <tr data-group="2"><td>กลุ่มที่ 2</td><td>10.1.2.3/30</td><td>10.1.2.2/30</td><td>10.1.2.1/30</td></tr>
+                                <tr data-group="3"><td>กลุ่มที่ 3</td><td>10.1.2.3/30</td><td>10.1.2.3/30</td><td>10.1.2.1/30</td></tr>
+                                <tr data-group="4"><td>กลุ่มที่ 4</td><td>10.1.2.3/30</td><td>10.1.2.4/30</td><td>10.1.2.1/30</td></tr>
+                                <tr data-group="5"><td>กลุ่มที่ 5</td><td>10.1.2.3/30</td><td>10.1.2.5/30</td><td>10.1.2.1/30</td></tr>
+                                <tr data-group="6"><td>กลุ่มที่ 6</td><td>10.1.2.3/30</td><td>10.1.2.6/30</td><td>10.1.2.1/30</td></tr>
+                                <tr data-group="7"><td>กลุ่มที่ 7</td><td>10.1.2.3/30</td><td>10.1.2.7/30</td><td>10.1.2.1/30</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-footer">
+                <span>หลักสูตร Training FixedIP & Forward Port</span>
+                <span>หน้า 1 จาก 4</span>
+            </div>
+        </div>
+
+        <!-- ================= PAGE 2 ================= -->
+        <div class="a4-page">
+            <div class="page-header">
+                <div class="page-title-area">
+                    <h2>คู่มือและข้อมูลวงจรกิจกรรม Workshop (Forward Port)</h2>
+                    <p>Training FixedIP & Forward Port Reference Guide</p>
+                </div>
+                <span class="page-badge">หน้า 2/4: Ref (Forward Port)</span>
+            </div>
+
+            <div class="page-content" style="justify-content: center;">
+                <!-- TABLE 3 -->
+                <div>
+                    <h3 class="section-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+                        3. วงจร Workshop เซ็ต Forwardport
+                    </h3>
+                    <div class="table-container">
+                        <table id="tableForwardPort">
+                            <thead>
+                                <tr>
+                                    <th style="width: 20%;">กลุ่มที่</th>
+                                    <th>วงจร</th>
+                                    <th>Internal Port</th>
+                                    <th>External Port</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-group="1"><td>กลุ่มที่ 1</td><td>2311j1111</td><td>80</td><td>1010</td></tr>
+                                <tr data-group="2"><td>กลุ่มที่ 2</td><td>2311j1111</td><td>2222</td><td>2020</td></tr>
+                                <tr data-group="3"><td>กลุ่มที่ 3</td><td>2311j1111</td><td>3333</td><td>3030</td></tr>
+                                <tr data-group="4"><td>กลุ่มที่ 4</td><td>2311j1111</td><td>4444</td><td>4040</td></tr>
+                                <tr data-group="5"><td>กลุ่มที่ 5</td><td>2311j1111</td><td>5555</td><td>5050</td></tr>
+                                <tr data-group="6"><td>กลุ่มที่ 6</td><td>2311j1111</td><td>80</td><td>6060</td></tr>
+                                <tr data-group="7"><td>กลุ่มที่ 7</td><td>2311j1111</td><td>7777</td><td>7070</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-footer">
+                <span>หลักสูตร Training FixedIP & Forward Port</span>
+                <span>หน้า 2 จาก 4</span>
+            </div>
+        </div>
+
+        <!-- ================= PAGE 3 ================= -->
+        <div class="a4-page">
+            <div class="page-header">
+                <div class="page-title-area">
+                    <h2>คู่มือและขั้นตอนการทำ Workshop (Fixed IP)</h2>
+                    <p>Workshop Implementation Checklists - Fixed IP Configuration</p>
+                </div>
+                <span class="page-badge">หน้า 3/4: Checklist (Fixed IP)</span>
+            </div>
+
+            <div class="page-content">
+                <!-- PPPOE CHECKLIST -->
+                <div class="checklist-group">
+                    <h3 class="checklist-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Workshop เซ็ต FixedIP (PPPOE)
+                    </h3>
+                    <div class="checklist-items">
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="pppoe-1">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">ตรวจสอบข้อมูล TSP เลขวงจร (ตามกลุ่ม)</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="pppoe-2">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">ตรวจสอบข้อมูล IP เช่นค้นหาจาก Google "ip cal" แล้วเลือกเว็บเครื่องมือ เพื่อเตรียม IP Gateway LAN, Subnet, IP ที่จะ Fixed ไว้ที่โน๊ตบุ๊ค</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="pppoe-3">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">Fixed IP ที่โน๊ตบุ๊ค วง Default Huawei เพื่อให้สามารถเข้า ONU Huawei ได้</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="pppoe-4">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">เซ็ตหน้า WAN ใส่ User และ Password ของวงจร</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="pppoe-5">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">ติ๊ก Enable NAT ออก</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="pppoe-6">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">ตรวจสอบ Status ว่า ONU ได้รับ IP WAN ปกติตามข้อมูลหรือไม่</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="pppoe-7">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">เซ็ต IP Gateway LAN ที่ ONU Huawei (เมื่อเซ็ตแล้วจะเข้า ONU วงเดิมไม่ได้)</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="pppoe-8">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">Fixed IP ที่โน๊ตบุ๊ค วงที่เพิ่งเซ็ตใหม่ พร้อมเซ็ต Gateway และชี้ DNS ไปที่ Gateway เพื่อให้เข้า ONU Huawei และออกเน็ตได้</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="pppoe-9">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">เข้า ONU Huawei ไปที่หัวข้อ DHCP แล้วปิด DHCP (หรือถามความต้องการลูกค้าว่าให้เปิด DHCP ไหม)</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="pppoe-10">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">ตรวจสอบ Range DHCP ที่แจกว่าถูกต้องหรือไม่ (กรณีเปิด DHCP)</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="pppoe-11">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">ปิต WiFi เหลือแต่ LAN ที่ต่อ ONU แล้วทดลองออกอินเทอร์เน็ตว่าใช้งานได้หรือไม่</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="pppoe-12">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">ค้นหาใน Google "what is my ip" เพื่อตรวจสอบว่า IP ที่ออกเน็ตได้เป็น IP ขา LAN ตามที่เซ็ตไว้หรือไม่ (ถ้าได้เป็นขา WAN แสดงว่าไม่ได้ติ๊ก NAT ออก ให้ติ๊กออกแล้วทดสอบใหม่)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- STATIC CHECKLIST -->
+                <div class="checklist-group">
+                    <h3 class="checklist-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Workshop เซ็ต FixedIP (Static)
+                    </h3>
+                    <div class="checklist-items">
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="static-1">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">ตรวจสอบข้อมูล IP VPN (ตามกลุ่ม)</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="static-2">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">ตรวจสอบข้อมูล IP เช่นค้นหาจาก Google "ip cal" แล้วเลือกเว็บเครื่องมือ เพื่อเตรียม IP Gateway LAN, Subnet, IP ที่จะ Fixed ไว้ที่โน๊ตบุ๊ค</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="static-3">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">Fixed IP ที่โน๊ตบุ๊ค วง Default Huawei เพื่อให้สามารถเข้า ONU Huawei ได้</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="static-4">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">เซ็ตหน้า WAN โดยเลือกประเภทการเชื่อมต่อเป็น IPoE และ VLAN 40</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="static-5">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">เลือกตั้งค่า IP แบบ Static จากนั้นใส่ค่า IP, Subnet, Gateway และ DNS</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="static-6">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">ติ๊ก Enable NAT ออก</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="static-7">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">เซ็ต IP Gateway LAN ที่ ONU Huawei (เมื่อเซ็ตแล้วจะเข้า ONU วงเดิมไม่ได้)</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="static-8">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">Fixed IP ที่โน๊ตบุ๊ค วงที่เพิ่งเซ็ตใหม่ พร้อมเซ็ต Gateway และชี้ DNS ไปที่ Gateway เพื่อให้เข้า ONU Huawei และออกเน็ตได้</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="static-9">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">เข้า ONU Huawei ไปที่หัวข้อ DHCP แล้วปิด DHCP (หรือถามความต้องการลูกค้าว่าให้เปิด DHCP ไหม)</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="static-10">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">ตรวจสอบ Range DHCP ที่แจกว่าถูกต้องหรือไม่ (กรณีเปิด DHCP)</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="static-11">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">ปิด WiFi เหลือแต่ LAN ที่ต่อ ONU แล้วทดลอง Ping ไปยัง CE-WAN</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-footer">
+                <span>หลักสูตร Training FixedIP & Forward Port</span>
+                <span>หน้า 3 จาก 4</span>
+            </div>
+        </div>
+
+        <!-- ================= PAGE 4 ================= -->
+        <div class="a4-page">
+            <div class="page-header">
+                <div class="page-title-area">
+                    <h2>คู่มือและขั้นตอนการทำ Workshop (Forward Port)</h2>
+                    <p>Workshop Implementation Checklists - Forward Port Configuration</p>
+                </div>
+                <span class="page-badge">หน้า 4/4: Checklist (Forward Port)</span>
+            </div>
+
+            <div class="page-content">
+                <!-- FORWARDPORT CHECKLIST -->
+                <div class="checklist-group">
+                    <h3 class="checklist-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Workshop เซ็ต Forwardport
+                    </h3>
+                    <div class="checklist-items">
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="forward-1">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">ตรวจสอบข้อมูล TSP เลขวงจร (ตามกลุ่ม)</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="forward-2">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">Fixed IP ที่โน๊ตบุ๊ค วง Default Huawei เพื่อให้สามารถเข้า ONU Huawei ได้</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="forward-3">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">เซ็ตหน้า WAN ใส่ User และ Password ของวงจร</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="forward-4">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">ทำการ Enable DHCP ที่ตัว ONU</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="forward-5">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">นำการตั้งค่า Fixed IP บนโน๊ตบุ๊คออก เพื่อให้รับ IP จาก DHCP เป็นปกติ</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="forward-6">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">ปิด WiFi บนโน๊ตบุ๊ค และทดลองเชื่อมต่อออกเน็ตผ่านสาย LAN เท่านั้น</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="forward-7">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">ดาวน์โหลดและติดตั้งโปรแกรม HFS (HTTP File Server)</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="forward-8">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">เปิดโปรแกรม HFS แล้วทดสอบเข้าใช้งานผ่าน http://localhost และ http://192.168.100.x จากเครื่องตัวเอง (การเข้าแบบไม่ใส่ Port คือการทดสอบผ่าน Port 80)</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="forward-9">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">ทำการตั้งค่า Forward Port หมายเลข IP 192.168.100.x ไปยัง Port External ที่กำหนดของแต่ละกลุ่ม</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="forward-10">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">ค้นหาใน Google "what is my ip" เพื่อตรวจสอบข้อมูล IP ขาออกเน็ต</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="forward-11">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">ค้นหาใน Google "check port open" ใส่ IP ขาออกเน็ต และหมายเลข Port External เพื่อตรวจเช็คว่าสถานะขึ้น Open หรือไม่</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="forward-12">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">ทดลองใช้เครือข่ายอินเทอร์เน็ตมือถือ (คนละวงกับ ONU) เปิด URL สาธารณะ เพื่อตรวจสอบความสามารถในการเข้าใช้งาน Server จากภายนอก</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-footer">
+                <span>หลักสูตร Training FixedIP & Forward Port</span>
+                <span>หน้า 4 จาก 4</span>
+            </div>
+        </div>
+
+
+
+    <!-- --- INTERACTIVE JAVASCRIPT --- -->
+    <script>
+        // Save and load checkbox status to/from LocalStorage
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        
+        checkboxes.forEach(cb => {
+            cb.addEventListener('change', function() {
+                localStorage.setItem(cb.id, cb.checked);
+            });
+        });
+
+        function loadSavedState() {
+            // Load Checkboxes
+            checkboxes.forEach(cb => {
+                const savedState = localStorage.getItem(cb.id);
+                if (savedState === 'true') {
+                    cb.checked = true;
+                }
+            });
+        }
+
+        // Run on load
+        window.addEventListener('DOMContentLoaded', () => {
+            loadSavedState();
+        });
+    </script>
 </body>
 
 </html>
