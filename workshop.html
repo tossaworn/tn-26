@@ -7,7 +7,9 @@
     <title>คู่มือกิจกรรม Workshop - Training FixedIP & Forward Port</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Anuphan:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Anuphan:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --primary: #6366f1;
@@ -72,8 +74,6 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            border-bottom: 2px solid var(--primary-light);
-            padding-bottom: 0.75rem;
         }
 
         .page-title-area h2 {
@@ -278,16 +278,16 @@
             transition: all 0.2s ease;
         }
 
-        .checkbox-item:hover input ~ .checkmark {
+        .checkbox-item:hover input~.checkmark {
             border-color: var(--primary);
         }
 
-        .checkbox-item input:checked ~ .checkmark {
+        .checkbox-item input:checked~.checkmark {
             background-color: var(--primary);
             border-color: var(--primary);
         }
 
-        .checkbox-item input:checked ~ .checkmark::after {
+        .checkbox-item input:checked~.checkmark::after {
             content: "";
             position: absolute;
             display: block;
@@ -307,7 +307,7 @@
             transition: all 0.2s ease;
         }
 
-        .checkbox-item input:checked ~ .checkbox-text {
+        .checkbox-item input:checked~.checkbox-text {
             color: var(--text-muted);
             text-decoration: line-through;
             opacity: 0.75;
@@ -344,12 +344,12 @@
                 page-break-after: avoid !important;
             }
 
-            .checkbox-item input:checked ~ .checkmark {
+            .checkbox-item input:checked~.checkmark {
                 background-color: #000 !important;
                 border-color: #000 !important;
             }
 
-            .checkbox-item input:checked ~ .checkmark::after {
+            .checkbox-item input:checked~.checkmark::after {
                 border-color: #fff !important;
             }
 
@@ -369,10 +369,8 @@
         <div class="a4-page">
             <div class="page-header">
                 <div class="page-title-area">
-                    <h2>คู่มือและข้อมูลวงจรกิจกรรม Workshop</h2>
-                    <p>Training FixedIP & Forward Port Reference Guide</p>
+                    <h2>ข้อมูล Workshop</h2>
                 </div>
-                <span class="page-badge">หน้า 1/4: Ref (Fixed IP)</span>
             </div>
 
             <div class="page-content">
@@ -380,14 +378,16 @@
                 <div class="link-banner">
                     <div class="link-info">
                         <div class="link-icon-bg">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
                                 <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
                             </svg>
                         </div>
                         <div>
                             <div class="link-text-title">ลิงก์ระบบและเครื่องมือการอบรม</div>
-                            <a href="https://aaasssddd.github.io/11lla-aas" target="_blank" class="link-url">aaasssddd.github.io/11lla-aas</a>
+                            <a href="https://tossaworn.github.io/tn-26" target="_blank"
+                                class="link-url">tossaworn.github.io/tn-26</a>
                         </div>
                     </div>
                 </div>
@@ -395,7 +395,10 @@
                 <!-- TABLE 1 -->
                 <div>
                     <h3 class="section-title">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="9" y1="3" x2="9" y2="21"></line>
+                        </svg>
                         1. วงจร Workshop เซ็ต FixedIP (PPPOE)
                     </h3>
                     <div class="table-container">
@@ -407,13 +410,34 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr data-group="1"><td>กลุ่มที่ 1</td><td>2372j1111</td></tr>
-                                <tr data-group="2"><td>กลุ่มที่ 2</td><td>2372j2222</td></tr>
-                                <tr data-group="3"><td>กลุ่มที่ 3</td><td>2372j3333</td></tr>
-                                <tr data-group="4"><td>กลุ่มที่ 4</td><td>2372j4444</td></tr>
-                                <tr data-group="5"><td>กลุ่มที่ 5</td><td>2372j5555</td></tr>
-                                <tr data-group="6"><td>กลุ่มที่ 6</td><td>2372j6666</td></tr>
-                                <tr data-group="7"><td>กลุ่มที่ 7</td><td>2372j7777</td></tr>
+                                <tr data-group="1">
+                                    <td>กลุ่มที่ 1</td>
+                                    <td>2372j1111</td>
+                                </tr>
+                                <tr data-group="2">
+                                    <td>กลุ่มที่ 2</td>
+                                    <td>2372j2222</td>
+                                </tr>
+                                <tr data-group="3">
+                                    <td>กลุ่มที่ 3</td>
+                                    <td>2372j3333</td>
+                                </tr>
+                                <tr data-group="4">
+                                    <td>กลุ่มที่ 4</td>
+                                    <td>2372j4444</td>
+                                </tr>
+                                <tr data-group="5">
+                                    <td>กลุ่มที่ 5</td>
+                                    <td>2372j5555</td>
+                                </tr>
+                                <tr data-group="6">
+                                    <td>กลุ่มที่ 6</td>
+                                    <td>2372j6666</td>
+                                </tr>
+                                <tr data-group="7">
+                                    <td>กลุ่มที่ 7</td>
+                                    <td>2372j7777</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -422,7 +446,10 @@
                 <!-- TABLE 2 -->
                 <div>
                     <h3 class="section-title">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="9" y1="3" x2="9" y2="21"></line>
+                        </svg>
                         2. IP Workshop เซ็ต FixedIP (Static)
                     </h3>
                     <div class="table-container">
@@ -436,13 +463,48 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr data-group="1"><td>กลุ่มที่ 1</td><td>10.1.2.3/30</td><td>10.1.2.1/30</td><td>10.1.2.1/30</td></tr>
-                                <tr data-group="2"><td>กลุ่มที่ 2</td><td>10.1.2.3/30</td><td>10.1.2.2/30</td><td>10.1.2.1/30</td></tr>
-                                <tr data-group="3"><td>กลุ่มที่ 3</td><td>10.1.2.3/30</td><td>10.1.2.3/30</td><td>10.1.2.1/30</td></tr>
-                                <tr data-group="4"><td>กลุ่มที่ 4</td><td>10.1.2.3/30</td><td>10.1.2.4/30</td><td>10.1.2.1/30</td></tr>
-                                <tr data-group="5"><td>กลุ่มที่ 5</td><td>10.1.2.3/30</td><td>10.1.2.5/30</td><td>10.1.2.1/30</td></tr>
-                                <tr data-group="6"><td>กลุ่มที่ 6</td><td>10.1.2.3/30</td><td>10.1.2.6/30</td><td>10.1.2.1/30</td></tr>
-                                <tr data-group="7"><td>กลุ่มที่ 7</td><td>10.1.2.3/30</td><td>10.1.2.7/30</td><td>10.1.2.1/30</td></tr>
+                                <tr data-group="1">
+                                    <td>กลุ่มที่ 1</td>
+                                    <td>10.1.2.3/30</td>
+                                    <td>10.1.2.1/30</td>
+                                    <td>10.1.2.1/30</td>
+                                </tr>
+                                <tr data-group="2">
+                                    <td>กลุ่มที่ 2</td>
+                                    <td>10.1.2.3/30</td>
+                                    <td>10.1.2.2/30</td>
+                                    <td>10.1.2.1/30</td>
+                                </tr>
+                                <tr data-group="3">
+                                    <td>กลุ่มที่ 3</td>
+                                    <td>10.1.2.3/30</td>
+                                    <td>10.1.2.3/30</td>
+                                    <td>10.1.2.1/30</td>
+                                </tr>
+                                <tr data-group="4">
+                                    <td>กลุ่มที่ 4</td>
+                                    <td>10.1.2.3/30</td>
+                                    <td>10.1.2.4/30</td>
+                                    <td>10.1.2.1/30</td>
+                                </tr>
+                                <tr data-group="5">
+                                    <td>กลุ่มที่ 5</td>
+                                    <td>10.1.2.3/30</td>
+                                    <td>10.1.2.5/30</td>
+                                    <td>10.1.2.1/30</td>
+                                </tr>
+                                <tr data-group="6">
+                                    <td>กลุ่มที่ 6</td>
+                                    <td>10.1.2.3/30</td>
+                                    <td>10.1.2.6/30</td>
+                                    <td>10.1.2.1/30</td>
+                                </tr>
+                                <tr data-group="7">
+                                    <td>กลุ่มที่ 7</td>
+                                    <td>10.1.2.3/30</td>
+                                    <td>10.1.2.7/30</td>
+                                    <td>10.1.2.1/30</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -450,7 +512,6 @@
             </div>
 
             <div class="page-footer">
-                <span>หลักสูตร Training FixedIP & Forward Port</span>
                 <span>หน้า 1 จาก 4</span>
             </div>
         </div>
@@ -459,17 +520,18 @@
         <div class="a4-page">
             <div class="page-header">
                 <div class="page-title-area">
-                    <h2>คู่มือและข้อมูลวงจรกิจกรรม Workshop (Forward Port)</h2>
-                    <p>Training FixedIP & Forward Port Reference Guide</p>
+                    <h2>ข้อมูล Workshop</h2>
                 </div>
-                <span class="page-badge">หน้า 2/4: Ref (Forward Port)</span>
             </div>
 
-            <div class="page-content" style="justify-content: center;">
+            <div class="page-content">
                 <!-- TABLE 3 -->
                 <div>
                     <h3 class="section-title">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="9" y1="3" x2="9" y2="21"></line>
+                        </svg>
                         3. วงจร Workshop เซ็ต Forwardport
                     </h3>
                     <div class="table-container">
@@ -483,13 +545,48 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr data-group="1"><td>กลุ่มที่ 1</td><td>2311j1111</td><td>80</td><td>1010</td></tr>
-                                <tr data-group="2"><td>กลุ่มที่ 2</td><td>2311j1111</td><td>2222</td><td>2020</td></tr>
-                                <tr data-group="3"><td>กลุ่มที่ 3</td><td>2311j1111</td><td>3333</td><td>3030</td></tr>
-                                <tr data-group="4"><td>กลุ่มที่ 4</td><td>2311j1111</td><td>4444</td><td>4040</td></tr>
-                                <tr data-group="5"><td>กลุ่มที่ 5</td><td>2311j1111</td><td>5555</td><td>5050</td></tr>
-                                <tr data-group="6"><td>กลุ่มที่ 6</td><td>2311j1111</td><td>80</td><td>6060</td></tr>
-                                <tr data-group="7"><td>กลุ่มที่ 7</td><td>2311j1111</td><td>7777</td><td>7070</td></tr>
+                                <tr data-group="1">
+                                    <td>กลุ่มที่ 1</td>
+                                    <td>2311j1111</td>
+                                    <td>80</td>
+                                    <td>1010</td>
+                                </tr>
+                                <tr data-group="2">
+                                    <td>กลุ่มที่ 2</td>
+                                    <td>2311j1111</td>
+                                    <td>2222</td>
+                                    <td>2020</td>
+                                </tr>
+                                <tr data-group="3">
+                                    <td>กลุ่มที่ 3</td>
+                                    <td>2311j1111</td>
+                                    <td>3333</td>
+                                    <td>3030</td>
+                                </tr>
+                                <tr data-group="4">
+                                    <td>กลุ่มที่ 4</td>
+                                    <td>2311j1111</td>
+                                    <td>4444</td>
+                                    <td>4040</td>
+                                </tr>
+                                <tr data-group="5">
+                                    <td>กลุ่มที่ 5</td>
+                                    <td>2311j1111</td>
+                                    <td>5555</td>
+                                    <td>5050</td>
+                                </tr>
+                                <tr data-group="6">
+                                    <td>กลุ่มที่ 6</td>
+                                    <td>2311j1111</td>
+                                    <td>80</td>
+                                    <td>6060</td>
+                                </tr>
+                                <tr data-group="7">
+                                    <td>กลุ่มที่ 7</td>
+                                    <td>2311j1111</td>
+                                    <td>7777</td>
+                                    <td>7070</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -497,7 +594,6 @@
             </div>
 
             <div class="page-footer">
-                <span>หลักสูตร Training FixedIP & Forward Port</span>
                 <span>หน้า 2 จาก 4</span>
             </div>
         </div>
@@ -506,17 +602,17 @@
         <div class="a4-page">
             <div class="page-header">
                 <div class="page-title-area">
-                    <h2>คู่มือและขั้นตอนการทำ Workshop (Fixed IP)</h2>
-                    <p>Workshop Implementation Checklists - Fixed IP Configuration</p>
+                    <h2>ข้อมูล Workshop</h2>
                 </div>
-                <span class="page-badge">หน้า 3/4: Checklist (Fixed IP)</span>
             </div>
 
             <div class="page-content">
                 <!-- PPPOE CHECKLIST -->
                 <div class="checklist-group">
                     <h3 class="checklist-title">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
                         Workshop เซ็ต FixedIP (PPPOE)
                     </h3>
                     <div class="checklist-items">
@@ -528,12 +624,15 @@
                         <label class="checkbox-item">
                             <input type="checkbox" id="pppoe-2">
                             <span class="checkmark"></span>
-                            <span class="checkbox-text">ตรวจสอบข้อมูล IP เช่นค้นหาจาก Google "ip cal" แล้วเลือกเว็บเครื่องมือ เพื่อเตรียม IP Gateway LAN, Subnet, IP ที่จะ Fixed ไว้ที่โน๊ตบุ๊ค</span>
+                            <span class="checkbox-text">ตรวจสอบข้อมูล IP เช่นค้นหาจาก Google "ip cal"
+                                แล้วเลือกเว็บเครื่องมือ เพื่อเตรียม IP Gateway LAN, Subnet, IP ที่จะ Fixed
+                                ไว้ที่โน๊ตบุ๊ค</span>
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" id="pppoe-3">
                             <span class="checkmark"></span>
-                            <span class="checkbox-text">Fixed IP ที่โน๊ตบุ๊ค วง Default Huawei เพื่อให้สามารถเข้า ONU Huawei ได้</span>
+                            <span class="checkbox-text">Fixed IP ที่โน๊ตบุ๊ค วง Default Huawei เพื่อให้สามารถเข้า ONU
+                                Huawei ได้</span>
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" id="pppoe-4">
@@ -553,32 +652,39 @@
                         <label class="checkbox-item">
                             <input type="checkbox" id="pppoe-7">
                             <span class="checkmark"></span>
-                            <span class="checkbox-text">เซ็ต IP Gateway LAN ที่ ONU Huawei (เมื่อเซ็ตแล้วจะเข้า ONU วงเดิมไม่ได้)</span>
+                            <span class="checkbox-text">เซ็ต IP Gateway LAN ที่ ONU Huawei (เมื่อเซ็ตแล้วจะเข้า ONU
+                                วงเดิมไม่ได้)</span>
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" id="pppoe-8">
                             <span class="checkmark"></span>
-                            <span class="checkbox-text">Fixed IP ที่โน๊ตบุ๊ค วงที่เพิ่งเซ็ตใหม่ พร้อมเซ็ต Gateway และชี้ DNS ไปที่ Gateway เพื่อให้เข้า ONU Huawei และออกเน็ตได้</span>
+                            <span class="checkbox-text">Fixed IP ที่โน๊ตบุ๊ค วงที่เพิ่งเซ็ตใหม่ พร้อมเซ็ต Gateway และชี้
+                                DNS ไปที่ Gateway เพื่อให้เข้า ONU Huawei และออกเน็ตได้</span>
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" id="pppoe-9">
                             <span class="checkmark"></span>
-                            <span class="checkbox-text">เข้า ONU Huawei ไปที่หัวข้อ DHCP แล้วปิด DHCP (หรือถามความต้องการลูกค้าว่าให้เปิด DHCP ไหม)</span>
+                            <span class="checkbox-text">เข้า ONU Huawei ไปที่หัวข้อ DHCP แล้วปิด DHCP
+                                (หรือถามความต้องการลูกค้าว่าให้เปิด DHCP ไหม)</span>
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" id="pppoe-10">
                             <span class="checkmark"></span>
-                            <span class="checkbox-text">ตรวจสอบ Range DHCP ที่แจกว่าถูกต้องหรือไม่ (กรณีเปิด DHCP)</span>
+                            <span class="checkbox-text">ตรวจสอบ Range DHCP ที่แจกว่าถูกต้องหรือไม่ (กรณีเปิด
+                                DHCP)</span>
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" id="pppoe-11">
                             <span class="checkmark"></span>
-                            <span class="checkbox-text">ปิต WiFi เหลือแต่ LAN ที่ต่อ ONU แล้วทดลองออกอินเทอร์เน็ตว่าใช้งานได้หรือไม่</span>
+                            <span class="checkbox-text">ปิต WiFi เหลือแต่ LAN ที่ต่อ ONU
+                                แล้วทดลองออกอินเทอร์เน็ตว่าใช้งานได้หรือไม่</span>
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" id="pppoe-12">
                             <span class="checkmark"></span>
-                            <span class="checkbox-text">ค้นหาใน Google "what is my ip" เพื่อตรวจสอบว่า IP ที่ออกเน็ตได้เป็น IP ขา LAN ตามที่เซ็ตไว้หรือไม่ (ถ้าได้เป็นขา WAN แสดงว่าไม่ได้ติ๊ก NAT ออก ให้ติ๊กออกแล้วทดสอบใหม่)</span>
+                            <span class="checkbox-text">ค้นหาใน Google "what is my ip" เพื่อตรวจสอบว่า IP
+                                ที่ออกเน็ตได้เป็น IP ขา LAN ตามที่เซ็ตไว้หรือไม่ (ถ้าได้เป็นขา WAN แสดงว่าไม่ได้ติ๊ก NAT
+                                ออก ให้ติ๊กออกแล้วทดสอบใหม่)</span>
                         </label>
                     </div>
                 </div>
@@ -586,7 +692,9 @@
                 <!-- STATIC CHECKLIST -->
                 <div class="checklist-group">
                     <h3 class="checklist-title">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
                         Workshop เซ็ต FixedIP (Static)
                     </h3>
                     <div class="checklist-items">
@@ -598,22 +706,27 @@
                         <label class="checkbox-item">
                             <input type="checkbox" id="static-2">
                             <span class="checkmark"></span>
-                            <span class="checkbox-text">ตรวจสอบข้อมูล IP เช่นค้นหาจาก Google "ip cal" แล้วเลือกเว็บเครื่องมือ เพื่อเตรียม IP Gateway LAN, Subnet, IP ที่จะ Fixed ไว้ที่โน๊ตบุ๊ค</span>
+                            <span class="checkbox-text">ตรวจสอบข้อมูล IP เช่นค้นหาจาก Google "ip cal"
+                                แล้วเลือกเว็บเครื่องมือ เพื่อเตรียม IP Gateway LAN, Subnet, IP ที่จะ Fixed
+                                ไว้ที่โน๊ตบุ๊ค</span>
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" id="static-3">
                             <span class="checkmark"></span>
-                            <span class="checkbox-text">Fixed IP ที่โน๊ตบุ๊ค วง Default Huawei เพื่อให้สามารถเข้า ONU Huawei ได้</span>
+                            <span class="checkbox-text">Fixed IP ที่โน๊ตบุ๊ค วง Default Huawei เพื่อให้สามารถเข้า ONU
+                                Huawei ได้</span>
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" id="static-4">
                             <span class="checkmark"></span>
-                            <span class="checkbox-text">เซ็ตหน้า WAN โดยเลือกประเภทการเชื่อมต่อเป็น IPoE และ VLAN 40</span>
+                            <span class="checkbox-text">เซ็ตหน้า WAN โดยเลือกประเภทการเชื่อมต่อเป็น IPoE และ VLAN
+                                40</span>
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" id="static-5">
                             <span class="checkmark"></span>
-                            <span class="checkbox-text">เลือกตั้งค่า IP แบบ Static จากนั้นใส่ค่า IP, Subnet, Gateway และ DNS</span>
+                            <span class="checkbox-text">เลือกตั้งค่า IP แบบ Static จากนั้นใส่ค่า IP, Subnet, Gateway และ
+                                DNS</span>
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" id="static-6">
@@ -623,34 +736,38 @@
                         <label class="checkbox-item">
                             <input type="checkbox" id="static-7">
                             <span class="checkmark"></span>
-                            <span class="checkbox-text">เซ็ต IP Gateway LAN ที่ ONU Huawei (เมื่อเซ็ตแล้วจะเข้า ONU วงเดิมไม่ได้)</span>
+                            <span class="checkbox-text">เซ็ต IP Gateway LAN ที่ ONU Huawei (เมื่อเซ็ตแล้วจะเข้า ONU
+                                วงเดิมไม่ได้)</span>
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" id="static-8">
                             <span class="checkmark"></span>
-                            <span class="checkbox-text">Fixed IP ที่โน๊ตบุ๊ค วงที่เพิ่งเซ็ตใหม่ พร้อมเซ็ต Gateway และชี้ DNS ไปที่ Gateway เพื่อให้เข้า ONU Huawei และออกเน็ตได้</span>
+                            <span class="checkbox-text">Fixed IP ที่โน๊ตบุ๊ค วงที่เพิ่งเซ็ตใหม่ พร้อมเซ็ต Gateway และชี้
+                                DNS ไปที่ Gateway เพื่อให้เข้า ONU Huawei และออกเน็ตได้</span>
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" id="static-9">
                             <span class="checkmark"></span>
-                            <span class="checkbox-text">เข้า ONU Huawei ไปที่หัวข้อ DHCP แล้วปิด DHCP (หรือถามความต้องการลูกค้าว่าให้เปิด DHCP ไหม)</span>
+                            <span class="checkbox-text">เข้า ONU Huawei ไปที่หัวข้อ DHCP แล้วปิด DHCP
+                                (หรือถามความต้องการลูกค้าว่าให้เปิด DHCP ไหม)</span>
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" id="static-10">
                             <span class="checkmark"></span>
-                            <span class="checkbox-text">ตรวจสอบ Range DHCP ที่แจกว่าถูกต้องหรือไม่ (กรณีเปิด DHCP)</span>
+                            <span class="checkbox-text">ตรวจสอบ Range DHCP ที่แจกว่าถูกต้องหรือไม่ (กรณีเปิด
+                                DHCP)</span>
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" id="static-11">
                             <span class="checkmark"></span>
-                            <span class="checkbox-text">ปิด WiFi เหลือแต่ LAN ที่ต่อ ONU แล้วทดลอง Ping ไปยัง CE-WAN</span>
+                            <span class="checkbox-text">ปิด WiFi เหลือแต่ LAN ที่ต่อ ONU แล้วทดลอง Ping ไปยัง
+                                CE-WAN</span>
                         </label>
                     </div>
                 </div>
             </div>
 
             <div class="page-footer">
-                <span>หลักสูตร Training FixedIP & Forward Port</span>
                 <span>หน้า 3 จาก 4</span>
             </div>
         </div>
@@ -659,17 +776,17 @@
         <div class="a4-page">
             <div class="page-header">
                 <div class="page-title-area">
-                    <h2>คู่มือและขั้นตอนการทำ Workshop (Forward Port)</h2>
-                    <p>Workshop Implementation Checklists - Forward Port Configuration</p>
+                    <h2>ข้อมูล Workshop</h2>
                 </div>
-                <span class="page-badge">หน้า 4/4: Checklist (Forward Port)</span>
             </div>
 
             <div class="page-content">
                 <!-- FORWARDPORT CHECKLIST -->
                 <div class="checklist-group">
                     <h3 class="checklist-title">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
                         Workshop เซ็ต Forwardport
                     </h3>
                     <div class="checklist-items">
@@ -681,7 +798,8 @@
                         <label class="checkbox-item">
                             <input type="checkbox" id="forward-2">
                             <span class="checkmark"></span>
-                            <span class="checkbox-text">Fixed IP ที่โน๊ตบุ๊ค วง Default Huawei เพื่อให้สามารถเข้า ONU Huawei ได้</span>
+                            <span class="checkbox-text">Fixed IP ที่โน๊ตบุ๊ค วง Default Huawei เพื่อให้สามารถเข้า ONU
+                                Huawei ได้</span>
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" id="forward-3">
@@ -696,12 +814,14 @@
                         <label class="checkbox-item">
                             <input type="checkbox" id="forward-5">
                             <span class="checkmark"></span>
-                            <span class="checkbox-text">นำการตั้งค่า Fixed IP บนโน๊ตบุ๊คออก เพื่อให้รับ IP จาก DHCP เป็นปกติ</span>
+                            <span class="checkbox-text">นำการตั้งค่า Fixed IP บนโน๊ตบุ๊คออก เพื่อให้รับ IP จาก DHCP
+                                เป็นปกติ</span>
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" id="forward-6">
                             <span class="checkmark"></span>
-                            <span class="checkbox-text">ปิด WiFi บนโน๊ตบุ๊ค และทดลองเชื่อมต่อออกเน็ตผ่านสาย LAN เท่านั้น</span>
+                            <span class="checkbox-text">ปิด WiFi บนโน๊ตบุ๊ค และทดลองเชื่อมต่อออกเน็ตผ่านสาย LAN
+                                เท่านั้น</span>
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" id="forward-7">
@@ -711,66 +831,71 @@
                         <label class="checkbox-item">
                             <input type="checkbox" id="forward-8">
                             <span class="checkmark"></span>
-                            <span class="checkbox-text">เปิดโปรแกรม HFS แล้วทดสอบเข้าใช้งานผ่าน http://localhost และ http://192.168.100.x จากเครื่องตัวเอง (การเข้าแบบไม่ใส่ Port คือการทดสอบผ่าน Port 80)</span>
+                            <span class="checkbox-text">เปิดโปรแกรม HFS แล้วทดสอบเข้าใช้งานผ่าน http://localhost และ
+                                http://192.168.100.x จากเครื่องตัวเอง (การเข้าแบบไม่ใส่ Port คือการทดสอบผ่าน Port
+                                80)</span>
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" id="forward-9">
                             <span class="checkmark"></span>
-                            <span class="checkbox-text">ทำการตั้งค่า Forward Port หมายเลข IP 192.168.100.x ไปยัง Port External ที่กำหนดของแต่ละกลุ่ม</span>
+                            <span class="checkbox-text">ทำการตั้งค่า Forward Port หมายเลข IP 192.168.100.x ไปยัง Port
+                                External ที่กำหนดของแต่ละกลุ่ม</span>
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" id="forward-10">
                             <span class="checkmark"></span>
-                            <span class="checkbox-text">ค้นหาใน Google "what is my ip" เพื่อตรวจสอบข้อมูล IP ขาออกเน็ต</span>
+                            <span class="checkbox-text">ค้นหาใน Google "what is my ip" เพื่อตรวจสอบข้อมูล IP
+                                ขาออกเน็ต</span>
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" id="forward-11">
                             <span class="checkmark"></span>
-                            <span class="checkbox-text">ค้นหาใน Google "check port open" ใส่ IP ขาออกเน็ต และหมายเลข Port External เพื่อตรวจเช็คว่าสถานะขึ้น Open หรือไม่</span>
+                            <span class="checkbox-text">ค้นหาใน Google "check port open" ใส่ IP ขาออกเน็ต และหมายเลข
+                                Port External เพื่อตรวจเช็คว่าสถานะขึ้น Open หรือไม่</span>
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" id="forward-12">
                             <span class="checkmark"></span>
-                            <span class="checkbox-text">ทดลองใช้เครือข่ายอินเทอร์เน็ตมือถือ (คนละวงกับ ONU) เปิด URL สาธารณะ เพื่อตรวจสอบความสามารถในการเข้าใช้งาน Server จากภายนอก</span>
+                            <span class="checkbox-text">ทดลองใช้เครือข่ายอินเทอร์เน็ตมือถือ (คนละวงกับ ONU) เปิด URL
+                                สาธารณะ เพื่อตรวจสอบความสามารถในการเข้าใช้งาน Server จากภายนอก</span>
                         </label>
                     </div>
                 </div>
             </div>
 
             <div class="page-footer">
-                <span>หลักสูตร Training FixedIP & Forward Port</span>
                 <span>หน้า 4 จาก 4</span>
             </div>
         </div>
 
 
 
-    <!-- --- INTERACTIVE JAVASCRIPT --- -->
-    <script>
-        // Save and load checkbox status to/from LocalStorage
-        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-        
-        checkboxes.forEach(cb => {
-            cb.addEventListener('change', function() {
-                localStorage.setItem(cb.id, cb.checked);
-            });
-        });
+        <!-- --- INTERACTIVE JAVASCRIPT --- -->
+        <script>
+            // Save and load checkbox status to/from LocalStorage
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
-        function loadSavedState() {
-            // Load Checkboxes
             checkboxes.forEach(cb => {
-                const savedState = localStorage.getItem(cb.id);
-                if (savedState === 'true') {
-                    cb.checked = true;
-                }
+                cb.addEventListener('change', function () {
+                    localStorage.setItem(cb.id, cb.checked);
+                });
             });
-        }
 
-        // Run on load
-        window.addEventListener('DOMContentLoaded', () => {
-            loadSavedState();
-        });
-    </script>
+            function loadSavedState() {
+                // Load Checkboxes
+                checkboxes.forEach(cb => {
+                    const savedState = localStorage.getItem(cb.id);
+                    if (savedState === 'true') {
+                        cb.checked = true;
+                    }
+                });
+            }
+
+            // Run on load
+            window.addEventListener('DOMContentLoaded', () => {
+                loadSavedState();
+            });
+        </script>
 </body>
 
 </html>
